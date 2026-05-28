@@ -16,30 +16,6 @@ export const TextNode = ({ id, data }) => {
   ];
 
   return (
-    // <div style={{width: 200, height: 80, border: '1px solid black'}}>
-    //   <div>
-    //     <span>Text</span>
-    //   </div>
-      
-    //   <div>
-    //     <label>
-    //       Text:
-    //       <input 
-    //         type="text" 
-    //         value={currText} 
-    //         onChange={handleTextChange} 
-    //       />
-    //     </label>
-    //   </div>
-      
-    //   <Handle
-    //     type="source"
-    //     position={Position.Right}
-    //     id={`${id}-output`}
-    //   />
-    // </div>
-
-
     <BaseNode title="Text" handles={handles}>
       <div>
         <label>

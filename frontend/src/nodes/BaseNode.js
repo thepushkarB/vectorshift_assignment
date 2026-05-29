@@ -1,4 +1,5 @@
 import { Handle } from 'reactflow';
+import React from 'react';
 
 // centralized theme mapping for all nodes - super scalable
 export const nodeThemes = {

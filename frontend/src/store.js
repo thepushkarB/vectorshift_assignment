@@ -51,4 +51,10 @@ export const useStore = create((set, get) => ({
         }),
       });
     },
+    // cleanup function to remove edges whose target handles no longer exist
+    removeOrphanedEdges: (handleId) => {
+      set({
+        edges: get().edges.filter((edge) => edge.targetHandle !== handleId)
+      });
+    }
   }));

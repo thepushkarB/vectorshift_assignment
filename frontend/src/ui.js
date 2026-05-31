@@ -103,7 +103,7 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} className="flex-1 w-full h-full relative canvas-grid">
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -117,10 +117,20 @@ export const PipelineUI = () => {
                 proOptions={proOptions}
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType='smoothstep'
+                className="bg-transparent"
             >
-                <Background color="#aaa" gap={gridSize} />
-                <Controls />
-                <MiniMap />
+                <Background color="#1c2b3c" gap={gridSize} size={2} />
+                <Controls 
+                    className="!bg-transparent !border-none !shadow-none [&_button]:!bg-[#010f1f] [&_button]:!border-b [&_button]:!border-[#3b4b37] [&_button]:!fill-green-400 [&_button:hover]:!bg-[#1c2b3c] [&_button:last-child]:!border-none overflow-hidden rounded-md border !border-[#3b4b37]" 
+                />
+                <MiniMap 
+                    className="![background-color:#010f1f] !border !border-[#3b4b37] !rounded-lg" 
+                    nodeColor={(node) => node.type === 'note' ? 'rgba(250, 204, 21, 0.2)' : 'rgba(0, 255, 65, 0.2)'} 
+                    nodeStrokeColor={(node) => node.type === 'note' ? '#facc15' : '#00ff41'}
+                    nodeStrokeWidth={4}
+                    nodeBorderRadius={8}
+                    maskColor="rgba(1, 15, 31, 0.8)" 
+                />
             </ReactFlow>
         </div>
         </>

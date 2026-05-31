@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-[#d4e4fa] font-sans m-0 overflow-hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  input, textarea, select {
+    @apply bg-black border border-[#3b4b37] text-green-400 p-1.5 w-full rounded focus:outline-none focus:border-green-400 focus:shadow-[0_0_10px_rgba(0,255,65,0.2)] transition-all font-mono text-xs mt-1;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+  .canvas-grid {
+    background-image: radial-gradient(circle, #1F2937 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: #051424;
+  }
+  
+  .node-glow {
+    box-shadow: 0 0 15px rgba(0, 230, 57, 0.1);
+  }
+  
+  .node-glow-yellow {
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.1);
+  }
+
+  .node-active {
+    border-color: #00e639 !important;
+    box-shadow: 0 0 20px rgba(0, 230, 57, 0.2);
+  }
+
+  .node-active-yellow {
+    border-color: #facc15 !important;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
+  }
+}
+
+/* Override React Flow Handles */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00ff41;
+  border: 2px solid #010f1f;
+}
+
+.react-flow__handle-yellow {
+  background-color: #facc15 !important;
+}
+
+/* React flow line styles */
+.react-flow__edge-path {
+  stroke: #3b4b37;
+  stroke-dasharray: 4;
+  animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -1000; }
 }
